@@ -76,9 +76,10 @@ class Radial(nn.Module):
         self.x0 = nn.Parameter(torch.Tensor(dim))
         self.log_alpha = nn.Parameter(torch.Tensor(1))
         self.beta = nn.Parameter(torch.Tensor(1))
+        self.reset_parameters(dim)
 
     def reset_parameters(dim):
-        init.uniform_(self.z0, -math.sqrt(1/dim), math.sqrt(1/dim))
+        init.uniform_(self.x0, -math.sqrt(1/dim), math.sqrt(1/dim))
         init.uniform_(self.log_alpha, -math.sqrt(1/dim), math.sqrt(1/dim))
         init.uniform_(self.beta, -math.sqrt(1/dim), math.sqrt(1/dim))
 
